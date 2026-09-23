@@ -37,12 +37,12 @@ ACR builder service (云端构建), one rule for this repo:
 | Code source | this GitHub repository |
 | Dockerfile path | `Dockerfile` |
 | Context directory | repo root (no context files are used) |
-| Namespace/repo | `lulinw/pi-vanilla` |
+| Namespace/repo | `***/pi-vanilla` |
 | Tag rules | `latest` + the pi version baked in (e.g. `0.87.1`) |
 | Build args | `PI_VERSION=0.87.1` (or set the default in the Dockerfile) |
 
 Other optional args: `BASE_IMAGE` (defaults to
-`registry.cn-hangzhou.aliyuncs.com/lulinw/deven:latest`; same-region builders
+`registry.cn-hangzhou.aliyuncs.com/***/deven:latest`; same-region builders
 can use the `registry-vpc` endpoint), `NPM_REGISTRY` (empty = upstream).
 
 **Ordering:** trigger the `deven` builder first when the toolchain changed —
@@ -57,10 +57,10 @@ docker build --build-arg PI_VERSION=0.87.1 -t pi-vanilla:latest .
 ## Using
 
 ```bash
-docker pull registry.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:latest
+docker pull registry.cn-hangzhou.aliyuncs.com/***/pi-vanilla:latest
 docker run -it --rm -v "$PWD:/workspace" \
   -e ANTHROPIC_API_KEY \
-  registry.cn-hangzhou.aliyuncs.com/lulinw/pi-vanilla:latest
+  registry.cn-hangzhou.aliyuncs.com/***/pi-vanilla:latest
 ```
 
 ## Releasing a new pi version
