@@ -21,7 +21,7 @@ ARG BASE_IMAGE=registry.cn-hangzhou.aliyuncs.com/lulinw/deven:latest
 FROM ${BASE_IMAGE}
 
 # Pi version to bake in; empty = latest.
-ARG PI_VERSION=1.0.4
+ARG PI_VERSION=1.1.0
 # Install registry for the pi npm package; empty (default) = upstream
 # registry.npmjs.org. Restricted-network override:
 #   NPM_REGISTRY=https://registry.npmmirror.com
